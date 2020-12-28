@@ -12,7 +12,6 @@
     <div class="p-2">spO² - {item.oxigenación}%</div>
     <div class="p-2">
       <i class="fas fa-heartbeat text-red-500" />
-      -
       {item.sistólica}/{item.diastólica}
     </div>
   </div>
