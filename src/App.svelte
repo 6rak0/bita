@@ -1,24 +1,28 @@
 <script>
-	import drive from "drive-db";
-	import { onMount } from "svelte";
-	import Item from "./Item.svelte";
+	import { Route, router } from "tinro";
+	import Home from "./pages/Home.svelte";
+	import Completos from "./pages/Completos.svelte";
+	import SpO2 from "./pages/SpO2.svelte";
 
-	let db = [];
-
-	onMount(async () => {
-		db = await drive("1w7DdwTiFllZ4Mg4nVWNFF6g2TKnGjsICo9ioFJwcXDw");
-		db.reverse();
-	});
+	router.useHashNavigation();
 </script>
 
 <div class="m-3">
 	<h1 class="text-center">
-		<i class="fas fa-virus text-green-700" />
-		evolución
-		<i class="fas fa-virus text-green-700" />
+		<a href="/">
+			<i class="fas fa-virus text-green-700" />
+			evolución
+			<i class="fas fa-virus text-green-700" />
+		</a>
 	</h1>
 </div>
 
-{#each db as item}
-	<Item {item} />
-{/each}
+<Route path="/">
+	<Home />
+</Route>
+<Route path="/completos">
+	<Completos />
+</Route>
+<Route path="/spo2">
+	<SpO2 />
+</Route>
